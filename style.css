@@ -1,0 +1,180 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --on: linear-gradient(45deg, rgb(17, 255, 17), rgb(1, 184, 1));
+    --off: linear-gradient(45deg, #555, #333);
+    --curr: linear-gradient(45deg, orange, darkorange);
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.station-trail{
+    display: flex;
+}
+
+.station{
+    position: relative;
+    width: 70px;
+}
+
+.station::before{
+    content: "";
+    position: absolute;
+    left: 0%;
+    top: 50%;
+    width: 35px;
+    height: 7px;
+    background: #333;
+    transform: translate(-50%,-50%);
+}
+
+.station::after{
+    content: "";
+    position: absolute;
+    right: -1%;
+    top: 50%;
+    width: 35px;
+    height: 7px;
+    background: #333;
+    transform: translate(-50%,-50%);
+}
+
+.station .station-name{
+    position: absolute;
+    top: -100%;
+    left: 30%;
+    text-wrap: nowrap;
+    transform-origin: left;
+    transform: rotate(-50deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.station:nth-child(even) .station-name{
+    transform-origin: right;
+    top: auto;
+    left: auto;
+    bottom: -100%;
+    right: 100%;
+}
+
+.station .light{
+    width: 20px;
+    height: 20px;
+    background: #222;
+    border-radius: 50%;
+    position: relative;
+}
+
+.station .light .curr,
+.station .light .off,
+.station .light .on{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: var(--on);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.station .light .on{
+    animation: blink 8s infinite;
+}
+
+.station:nth-of-type(1) .light .on{animation-delay: 0s;}
+.station:nth-of-type(2) .light .on{animation-delay: 0.1s;}
+.station:nth-of-type(3) .light .on{animation-delay: 0.2s;}
+.station:nth-of-type(4) .light .on{animation-delay: 0.3s;}
+.station:nth-of-type(5) .light .on{animation-delay: 0.4s;}
+.station:nth-of-type(6) .light .on{animation-delay: 0.5s;}
+.station:nth-of-type(7) .light .on{animation-delay: 0.6s;}
+.station:nth-of-type(8) .light .on{animation-delay: 0.7s;}
+.station:nth-of-type(9) .light .on{animation-delay: 0.8s;}
+.station:nth-of-type(10) .light .on{animation-delay: 0.9s;}
+.station:nth-of-type(11) .light .on{animation-delay: 1s;}
+.station:nth-of-type(12) .light .on{animation-delay: 1.1s;}
+.station:nth-of-type(13) .light .on{animation-delay: 1.2s;}
+.station:nth-of-type(14) .light .on{animation-delay: 1.3s;}
+.station:nth-of-type(15) .light .on{animation-delay: 1.4s;}
+.station:nth-of-type(16) .light .on{animation-delay: 1.5s;}
+.station:nth-of-type(17) .light .on{animation-delay: 1.6s;}
+.station:nth-of-type(18) .light .on{animation-delay: 1.7s;}
+
+.station .light .off{
+    background: var(--off);
+}
+
+.station .light .curr{
+    background: var(--curr);
+    animation: currBlink 8s infinite;
+}
+
+.station:nth-of-type(1) .light .curr{animation-delay: 0s;}
+.station:nth-of-type(2) .light .curr{animation-delay: 0.1s;}
+.station:nth-of-type(3) .light .curr{animation-delay: 0.2s;}
+.station:nth-of-type(4) .light .curr{animation-delay: 0.3s;}
+.station:nth-of-type(5) .light .curr{animation-delay: 0.4s;}
+.station:nth-of-type(6) .light .curr{animation-delay: 0.5s;}
+.station:nth-of-type(7) .light .curr{animation-delay: 0.6s;}
+.station:nth-of-type(8) .light .curr{animation-delay: 0.7s;}
+.station:nth-of-type(9) .light .curr{animation-delay: 0.8s;}
+.station:nth-of-type(10) .light .curr{animation-delay: 0.9s;}
+.station:nth-of-type(11) .light .curr{animation-delay: 1s;}
+.station:nth-of-type(12) .light .curr{animation-delay: 1.1s;}
+.station:nth-of-type(13) .light .curr{animation-delay: 1.2s;}
+.station:nth-of-type(14) .light .curr{animation-delay: 1.3s;}
+.station:nth-of-type(15) .light .curr{animation-delay: 1.4s;}
+.station:nth-of-type(16) .light .curr{animation-delay: 1.5s;}
+.station:nth-of-type(17) .light .curr{animation-delay: 1.6s;}
+.station:nth-of-type(18) .light .curr{animation-delay: 1.7s;}
+
+@keyframes blink {
+    25%{
+        background: var(--on);
+    }
+    49%{
+        background: var(--on);
+    }
+    50%{
+        background: var(--off);
+    }
+    55%{
+        background: var(--on);
+    }
+}
+
+@keyframes currBlink {
+    25%{
+        background: var(--curr);
+    }
+    49%{
+        background: var(--curr);
+    }
+    50%{
+        background: var(--off);
+    }
+    55%{
+        background: var(--curr);
+    }
+}
+
+select{
+    margin-top: 200px;
+}
